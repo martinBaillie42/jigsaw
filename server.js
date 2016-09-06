@@ -7,7 +7,7 @@
  */
 
 // include modules
-const sys = require('sys');
+const util = require('util');
 const http = require('http');
 const url = require('url');
 
@@ -32,7 +32,7 @@ const server = http.createServer((req, res) => {
 
     } catch (err) {
         // handle errors gracefully
-        sys.puts(err);
+        util.puts(err);
         res.writeHead(500);
         res.end('Internal Server Error');
     }
