@@ -12,7 +12,7 @@ const http = require('http');
 const url = require('url');
 
 // require customer dispatcher
-const dispatcher = require('./lib/dispatcher.js');
+const dispatcher = require('./dispatcher.js');
 
 // set server values
 const hostname = '127.0.0.1';

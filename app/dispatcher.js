@@ -24,7 +24,7 @@ this.dispatch = function(req, res){
     console.log(path);
 
     if (req.url == '/') {
-        fs.readFile('./webroot/index.html', function(error, content) {
+        fs.readFile('./public/index.html', function(error, content) {
            if (error) {
                serverError(500);
            } else {
