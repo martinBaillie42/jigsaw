@@ -7,7 +7,7 @@
 // Import modules
 const fs = require('fs');
 
-this.dispatch = function(req, res){
+exports.dispatch = function(req, res){
 
     // some private methods
     var serverError = function(code, content) {
@@ -34,7 +34,7 @@ this.dispatch = function(req, res){
     } else {
         var resource = path[1];
 
-        fs.readFile(`./webroot/${resource}.html`, function(error, content) {
+        fs.readFile(`./public/${resource}.html`, function(error, content) {
             if (error) {
                 serverError(500);
             } else {
