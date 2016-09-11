@@ -3,12 +3,13 @@
  * See http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
  */
 'use strict';
+const conf = require('../app/config/');
 const expect = require('chai').expect;
 const server = require('../app/server');
 const http = require('http');
 
 describe('Server', () => {
-    before( () => server.listen(3000) );
+    before( () => server.listen(conf.port, conf.hostname) );
 
     after( () => server.close() );
 });

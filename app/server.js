@@ -14,11 +14,6 @@ const url = require('url');
 // require customer dispatcher
 const dispatcher = require('./dispatcher');
 
-// set server values
-const hostname = '127.0.0.1';
-
-console.log(`Starting server at http://${hostname}`);
-
 const server = http.createServer((req, res) => {
     // wrap call in a try catch
     // or node js server will crash upon any code errors
@@ -37,7 +32,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-exports.listen = function (port) {
+exports.listen = function (port, hostname) {
     server.listen(port, hostname, () => {
         // runs when our server is created
         console.log(`Server running at http://${hostname}:${port}/`);
