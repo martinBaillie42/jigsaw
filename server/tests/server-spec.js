@@ -3,9 +3,9 @@
  * See http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
  */
 'use strict';
-const conf = require('../app/config/');
+const conf = require('../config/');
+const server = require('../');
 const expect = require('chai').expect;
-const server = require('../app/server');
 const http = require('http');
 
 describe('Server', () => {
@@ -26,7 +26,7 @@ describe('/', () => {
 
 // describe('Server', function() {
 //     it('should exist', function() {
-//         var Server = require('../app/server.js');
+//         var Server = require('../server/index.js');
 //         expect(Server).to.not.be.undefined;
 //     });
 // });

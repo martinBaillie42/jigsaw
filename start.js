@@ -1,5 +1,5 @@
-const conf = require('./app/config/');
-const server = require('./app/server');
+const conf = require('./server/config/');
+const server = require('./server/');
 
 server.listen(conf.port, conf.hostname);
 
