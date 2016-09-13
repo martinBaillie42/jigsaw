@@ -26,7 +26,7 @@ exports.dispatch = function(req, res){
     if (req.url == '/') {
         fs.readFile('./public/index.html', function(error, content) {
            if (error) {
-               serverError(500);
+               serverError(404);
            } else {
                renderHtml(content);
            }
@@ -36,7 +36,7 @@ exports.dispatch = function(req, res){
 
         fs.readFile(`./public/${resource}.html`, function(error, content) {
             if (error) {
-                serverError(500);
+                serverError(404);
             } else {
                 renderHtml(content);
             }

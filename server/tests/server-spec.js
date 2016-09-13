@@ -33,9 +33,9 @@ describe('Server', () => {
         })
     });
 
-    describe('/css/main.css', () => {
+    describe('/styles/main.css', () => {
         it('should return main.css', function (done) {
-            http.get(`${schemeHostPort}/style/main.css`, function (res) {
+            http.get(`${schemeHostPort}/styles/main.css`, function (res) {
                 expect(res.headers['content-type']).to.equal('text/css');
                 done();
             })
@@ -43,7 +43,7 @@ describe('Server', () => {
     });
 
     describe('/scripts/main.js', () => {
-        it('should return main.css', function (done) {
+        it('should return main.js', function (done) {
             http.get(`${schemeHostPort}/scripts/main.js`, function (res) {
                 expect(res.headers['content-type']).to.equal('application/js');
                 done();

@@ -30,8 +30,8 @@ const server = http.createServer((req, res) => {
     } catch (err) {
         // handle errors gracefully
         util.puts(err);
-        res.writeHead(500);
-        res.end('Internal Server Error');
+        res.writeHead(404);
+        res.end('Not Found');
     }
 });
 
