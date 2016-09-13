@@ -12,22 +12,15 @@ describe('Server', () => {
     before( () => server.listen(conf.port, conf.hostname) );
 
     after( () => server.close() );
-});
 
-describe('/', () => {
-    it('should return 200', function (done) {
-        http.get('http://127.0.0.1:3000', function (res) {
-            expect(res.statusCode).to.equal(200);
-            done();
+    describe('/', () => {
+        it('should return 200', function (done) {
+            http.get('http://127.0.0.1:3000', function (res) {
+                expect(res.statusCode).to.equal(200);
+                done();
+            })
         })
-    })
+    });
+
 });
-
-
-// describe('Server', function() {
-//     it('should exist', function() {
-//         var Server = require('../server/index.js');
-//         expect(Server).to.not.be.undefined;
-//     });
-// });
 

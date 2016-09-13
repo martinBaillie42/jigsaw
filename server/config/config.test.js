@@ -4,7 +4,7 @@
 const dev = require('./config.dev.js');
 
 const test = {
-    port: 8000
+    port: 3001
 };
 
 module.exports = Object.assign({}, dev, test);
