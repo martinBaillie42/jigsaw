@@ -6,6 +6,9 @@
  * http://www.jblotus.com/2011/05/30/building-your-first-node-js-app-part-2-building-the-web-server-and-request-dispatcher/
  */
 
+// TODO: Update server and dispatcher in this style https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+
+
 // include modules
 const util = require('util');
 const http = require('http');

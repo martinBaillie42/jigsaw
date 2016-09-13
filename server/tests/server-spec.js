@@ -8,6 +8,8 @@ const server = require('../');
 const expect = require('chai').expect;
 const http = require('http');
 
+const schemeHostPort = `http://${conf.hostname}:${conf.port}`;
+
 describe('Server', () => {
     before( () => server.listen(conf.port, conf.hostname) );
 
@@ -15,8 +17,35 @@ describe('Server', () => {
 
     describe('/', () => {
         it('should return 200', function (done) {
-            http.get('http://127.0.0.1:3000', function (res) {
+            http.get(schemeHostPort, function (res) {
                 expect(res.statusCode).to.equal(200);
+                done();
+            })
+        })
+    });
+
+    describe('/not-a-url', () => {
+        it('should return 404', function (done) {
+            http.get(`${schemeHostPort}/not-a-url`, function (res) {
+                expect(res.statusCode).to.equal(404);
+                done();
+            })
+        })
+    });
+
+    describe('/css/main.css', () => {
+        it('should return main.css', function (done) {
+            http.get(`${schemeHostPort}/style/main.css`, function (res) {
+                expect(res.headers['content-type']).to.equal('text/css');
+                done();
+            })
+        })
+    });
+
+    describe('/scripts/main.js', () => {
+        it('should return main.css', function (done) {
+            http.get(`${schemeHostPort}/scripts/main.js`, function (res) {
+                expect(res.headers['content-type']).to.equal('application/js');
                 done();
             })
         })
