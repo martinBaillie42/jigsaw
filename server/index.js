@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
 exports.listen = function (port, hostname) {
     server.listen(port, hostname, () => {
         // runs when our server is created
-        console.log(`Server running at http://${hostname}:${port}/`);
+        console.log(`Server running at ${hostname}:${port}/`);
     });
 };
 
