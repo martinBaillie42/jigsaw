@@ -1,3 +1,5 @@
+'use strict'
+
 const conf = require('./server/config/');
 const server = require('./server/');
 

@@ -10,76 +10,62 @@
 
 // TODO: Update server and dispatcher in this style https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
 
+'use stict';
 
 // include modules
 const util = require('util');
 const http = require('http');
 const url = require('url');
+const fs = require('fs');
+const path = require('path');
 
-// require customer dispatcher
-const dispatcher = require('./dispatcher');
+const server = http.createServer();
 
-const server = http.createServer(
-/*    (req, res) => {
-    // wrap call in a try catch
-    // or node js server will crash upon any code errors
-    try {
-        // pipe some details to the node console
-        console.log(`Incoming request from: ${req.connection.remoteAddress} for href: ${url.parse(req.url).href}`);
+function constructPath(url) {
+    const root = './public';
+    var filePath = url === '/' ? url + 'index' : url;
+    filePath = !path.extname(filePath) ? filePath + '.html' : filePath;
+    return root + filePath;
+}
 
-        // dispatch our request
-        dispatcher.dispatch(req, res);
+function responseErr(responseCode, res) {
+    res.writeHead(responseCode, {'Content-Type': 'text/html'});
+    res.end(`<h1>${responseCode}</h1>`, 'utf-8');
+    return res;
+}
 
-    } catch (err) {
-        // handle errors gracefully
-        util.puts(err);
-        res.writeHead(404);
-        res.end('Not Found');
-    }
-
-} */
-);
+function responseSuccess(res, filePath, data) {
+    const contentType = {
+        html: 'text/html',
+        css: 'text/css',
+        js: 'application/js'
+    };
+    var ext = path.extname(filePath).replace('.', '');
+    res.writeHead(200, {'Content-Type': contentType[ext]});
+    res.end(data.toString(), 'utf-8');
+    return res;
+}
 
 server.on('request', (req, res) => {
-    var miniReq = {
-        method: req.method,
-        url: req.url,
-        headers: req.headers,
-        body: []
-    };
 
-    req.on('error', function(err) {
-        console.error(err);
-        // requires a bit more to determine the error and correct error code to return
+    var filePath = constructPath(req.url);
+
+    console.log(filePath);
+
+    req.on('error', (err) => {
+        console.log(err);
         res.statusCode = 400;
         res.end();
-    }).on('data', function(chunk) {
-        minireq.body.push(chunk); // TODO: <- What is this?! on data chunk?
-    }).on('end', function() {
-        miniReq.body = Buffer.concat(miniReq.body).toString(); // TODO: What is Buffer?
-        // At this point, `body` has the entire request body stored in it as a string.
-        // Also, we have the headers, method, url and body, and can now
-        // do whatever we need to in order to respond to this request.
     });
 
-    // res.on('error', function(err) {
-    //     console.log(err);
-    // });
+    fs.readFile(filePath, (err, data) => {
+        if (err) {
+            res = responseErr(404, res);
+        } else {
+            res = responseSuccess(res, filePath, data);
+        }
+    });
 
-    dispatcher.dispatch(miniReq, res);
-
-    // res.writeHead(dispatch.statusCode, {'Content-Type': dispatch.contentType}, dispatch.encoding);
-    // res.end(dispatch.body);
-
-    // res.statusCode = 200;
-    // res.setHeader('Content-Type', 'application/json');
-    // Note: the 2 lines above could be replaced with this next one:
-    // res.writeHead(200, {'Content-Type': 'application/json'})
-
-    // res.write("HELLO");
-    // res.end();
-    // Note: the 2 lines above could be replaced with this next one:
-    // res.end(JSON.stringify(responseBody))
 });
 
 exports.listen = function (port, hostname, scheme) {
