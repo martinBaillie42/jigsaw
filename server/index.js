@@ -28,9 +28,10 @@ function constructPath(url) {
     return root + filePath;
 }
 
-function responseErr(res, responseCode) {
+function responseErr(res, filePath, responseCode) {
     res.writeHead(responseCode, {'Content-Type': 'text/html'});
     res.end(`<h1>${responseCode}</h1>`, 'utf-8');
+    console.log(responseCode, filePath);
     return res;
 }
 
@@ -43,14 +44,13 @@ function responseSuccess(res, filePath, data) {
     var ext = path.extname(filePath).replace('.', '');
     res.writeHead(200, {'Content-Type': contentType[ext]});
     res.end(data.toString(), 'utf-8');
+    console.log(200, filePath);
     return res;
 }
 
 server.on('request', (req, res) => {
 
     var filePath = constructPath(req.url);
-
-    console.log(filePath);
 
     req.on('error', (err) => {
         console.log(err);
@@ -60,7 +60,7 @@ server.on('request', (req, res) => {
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            res = responseErr(res, 404);
+            res = responseErr(res, filePath, 404);
         } else {
             res = responseSuccess(res, filePath, data);
         }
