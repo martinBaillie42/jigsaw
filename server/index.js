@@ -8,9 +8,7 @@
  * https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
  */
 
-// TODO: Update server and dispatcher in this style https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
-
-'use stict';
+'use strict';
 
 // include modules
 const util = require('util');
