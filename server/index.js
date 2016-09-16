@@ -28,7 +28,7 @@ function constructPath(url) {
     return root + filePath;
 }
 
-function responseErr(responseCode, res) {
+function responseErr(res, responseCode) {
     res.writeHead(responseCode, {'Content-Type': 'text/html'});
     res.end(`<h1>${responseCode}</h1>`, 'utf-8');
     return res;
@@ -60,7 +60,7 @@ server.on('request', (req, res) => {
 
     fs.readFile(filePath, (err, data) => {
         if (err) {
-            res = responseErr(404, res);
+            res = responseErr(res, 404);
         } else {
             res = responseSuccess(res, filePath, data);
         }
