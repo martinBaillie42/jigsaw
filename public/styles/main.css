@@ -2,6 +2,8 @@
 /*
 *   GLOBAL RESETS
 */
+/* TODO: Switch to REMs */
+
 body {
     font-family: Arial, sans-serif;
     font-size: 10px;
@@ -94,4 +96,29 @@ body {
     color: black;
     font-size: 80px;
     margin: 0;
+}
+
+/*
+* NAVIGATION
+*/
+.burger-icon {
+    display: block;
+    width: 100px;
+    height: 100px;
+    background-color: grey;
+}
+
+.burger-icon__bar {
+    display: block;
+    background-color: black;
+    width: 100%;
+    height: 20%;
+}
+
+.burger-icon__bar:first-child {
+    margin-bottom: 20%;
+}
+
+.burger-icon__bar:last-child {
+    margin-top: 20%;
 }
