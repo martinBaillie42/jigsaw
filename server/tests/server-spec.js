@@ -3,8 +3,6 @@
  * See http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
  */
 
-// TODO: Group the 'it's into the correct describes
-
 'use strict';
 const conf = require('../config/');
 const server = require('../');
