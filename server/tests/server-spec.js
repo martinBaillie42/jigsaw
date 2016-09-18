@@ -125,7 +125,7 @@ describe(schemeHostPort, () => {
             });
         });
 
-        it('should return content type \'application/js\'', function (done) {
+        it('should return content type \'image/svg+xml\'', function (done) {
             http.get(`${schemeHostPort}/icons/fi-mmc/svg/avatar.svg`, function (res) {
                 expect(res.headers['content-type']).to.equal('image/svg+xml');
                 done();
