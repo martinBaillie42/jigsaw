@@ -10,6 +10,8 @@
  * https://www.sitepoint.com/web-foundations/mime-types-complete-list/
  */
 
+// TODO: there is a findfile method for response. Use this.
+
 'use strict';
 
 // include modules
