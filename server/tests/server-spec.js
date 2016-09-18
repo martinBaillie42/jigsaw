@@ -89,5 +89,50 @@ describe(schemeHostPort, () => {
 
     });
 
+    describe('/icons/', () => {
+        it('should return 404', function (done) {
+            http.get(`${schemeHostPort}/icons/`, function (res) {
+                expect(res.statusCode).to.equal(404);
+                done();
+            })
+        })
+    });
+
+    describe('/icons/fi-mmc/', () => {
+        it('should return 404', function (done) {
+            http.get(`${schemeHostPort}/icons/fi-mmc`, function (res) {
+                expect(res.statusCode).to.equal(404);
+                done();
+            })
+        })
+    });
+
+    describe('/icons/fi-mmc/svg/', () => {
+        it('should return 404', function (done) {
+            http.get(`${schemeHostPort}/icons/fi-mmc/svg`, function (res) {
+                expect(res.statusCode).to.equal(404);
+                done();
+            })
+        })
+    });
+
+    describe('/icons/fi-mmc/svg/avatar.svg', () => {
+
+        it('should return 200', function (done) {
+            http.get(`${schemeHostPort}/icons/fi-mmc/svg/avatar.svg`, function (res) {
+                expect(res.statusCode).to.equal(200);
+                done();
+            });
+        });
+
+        it('should return content type \'application/js\'', function (done) {
+            http.get(`${schemeHostPort}/icons/fi-mmc/svg/avatar.svg`, function (res) {
+                expect(res.headers['content-type']).to.equal('image/svg+xml');
+                done();
+            });
+        });
+
+    });
+
 });
 

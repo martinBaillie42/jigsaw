@@ -6,6 +6,8 @@
  * http://www.jblotus.com/2011/05/30/building-your-first-node-js-app-part-2-building-the-web-server-and-request-dispatcher/
  * New new version from:
  * https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/
+ * Mime types list
+ * https://www.sitepoint.com/web-foundations/mime-types-complete-list/
  */
 
 'use strict';
@@ -37,7 +39,8 @@ function responseSuccess(res, filePath, data) {
     const contentType = {
         html: 'text/html',
         css: 'text/css',
-        js: 'application/js'
+        js: 'application/js',
+        svg: 'image/svg+xml'
     };
     var ext = path.extname(filePath).replace('.', '');
     res.writeHead(200, {'Content-Type': contentType[ext]});
