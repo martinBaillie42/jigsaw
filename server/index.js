@@ -45,8 +45,10 @@ function responseSuccess(res, filePath, data) {
         svg: 'image/svg+xml'
     };
     var ext = path.extname(filePath).replace('.', '');
+    //  TODO: Im telling the browser the svg is gzipped. but it isn't. Need to look into.
+    var encoding = ext === 'svg' ? 'gzip' : 'utf-8';
     res.writeHead(200, {'Content-Type': contentType[ext]});
-    res.end(data.toString(), 'utf-8');
+    res.end(data.toString(), encoding);
     console.log(200, filePath);
     return res;
 }
