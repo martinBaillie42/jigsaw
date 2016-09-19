@@ -83,21 +83,14 @@ body {
 /*
 * BRAND LOGO
 */
-.brand-logo {
-    text-align: center;
-}
-
 .brand-logo__anchor {
-     display: inline-block;
-     text-decoration: none;
+    text-decoration: none;
 }
 
 .brand-logo__heading {
-    color: black;
-    font-size: 80px;
-    margin: 0;
+    text-indent: -999px;
+    /*background-image: url(/images/jigsaw_logo.png);*/
 }
-
 /*
 * MAIN NAVIGATION
 */

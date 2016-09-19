@@ -40,7 +40,8 @@ function responseSuccess(res, filePath, data) {
         html: 'text/html',
         css: 'text/css',
         js: 'application/js',
-        svg: 'image/svg+xml'
+        svg: 'image/svg+xml',
+        png: 'image/png'
     };
     var ext = path.extname(filePath).replace('.', '');
     //  TODO: Im telling the browser the svg is gzipped. but it isn't. Need to look into.
@@ -48,6 +49,9 @@ function responseSuccess(res, filePath, data) {
     res.writeHead(200, {'Content-Type': contentType[ext]});
     res.end(data.toString(), encoding);
     console.log(200, filePath);
+    if (ext === 'html') {
+        console.log(ext, res);
+    }
     return res;
 }
 
