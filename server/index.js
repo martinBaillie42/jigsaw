@@ -10,6 +10,8 @@
  * https://www.sitepoint.com/web-foundations/mime-types-complete-list/
  */
 
+// TODO: Restructure. More like this perhaps? https://github.com/martinBaillie42/refwebserver/blob/master/index.js
+
 'use strict';
 
 // include modules
@@ -19,7 +21,7 @@ const url = require('url');
 const fs = require('fs');
 const path = require('path');
 
-const server = http.createServer();
+var server = http.createServer();
 
 function constructPath(url) {
     const root = './public';
@@ -44,14 +46,9 @@ function responseSuccess(res, filePath, data) {
         png: 'image/png'
     };
     var ext = path.extname(filePath).replace('.', '');
-    //  TODO: Im telling the browser the svg is gzipped. but it isn't. Need to look into.
-    var encoding = ext === 'svg' ? 'gzip' : 'utf-8';
     res.writeHead(200, {'Content-Type': contentType[ext]});
-    res.end(data.toString(), encoding);
+    res.end(data.toString(), 'binary');
     console.log(200, filePath);
-    if (ext === 'html') {
-        console.log(ext, res);
-    }
     return res;
 }
 
@@ -65,7 +62,7 @@ server.on('request', (req, res) => {
         res.end();
     });
 
-    fs.readFile(filePath, (err, data) => {
+    fs.readFile(filePath, 'binary', (err, data) => {
         if (err) {
             res = responseErr(res, filePath, 404);
         } else {
