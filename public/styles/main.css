@@ -2,11 +2,21 @@
 /*
 *   GLOBAL RESETS
 */
-/* TODO: Switch to REMs */
 
+/*
+Reference for REMs https://www.sitepoint.com/understanding-and-using-rem-units-in-css/ https://css-tricks.com/rems-ems/
+*/
+
+/* font-size set to 62.5% === 10px. Enables sensible sized rems to be used. */
+html {
+    font-size: 62.5%;
+}
+
+/* font-size in px required because not all browsers support rems */
 body {
     font-family: Arial, sans-serif;
-    font-size: 10px;
+    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 * {
