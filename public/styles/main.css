@@ -90,24 +90,60 @@ body {
     width: 100%;
 }
 
+/* ICONS */
+
+.icon {
+    display: block;
+    text-indent: -999px;
+    width: 100%; /* Maybe do width in REMs */
+    height: 0;
+    padding-bottom: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 98%;
+}
+
+.icon__contact-us {
+    background-image: url('../icons/fi-mmc/svg/phone-call.svg');
+}
+
+.icon__store-locator {
+    background-image: url('../icons/fi-mmc/svg/placeholder.svg');
+}
+
+.icon__search {
+    background-image: url('../icons/fi-mmc/svg/magnifying-glass.svg');
+}
+
+.icon__basket {
+    background-image: url('../icons/fi-mmc/svg/shopping-bag.svg');
+}
+
 /*
 * BRAND LOGO
 */
 .brand-logo__anchor {
     text-decoration: none;
+    display: block;
+    width: 100%;
+    background-image: url('../images/jigsaw_logo.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-size: 2.1rem;
+
 }
 
 .brand-logo__heading {
     text-indent: -999px;
-    /*background-image: url(/images/jigsaw_logo.png);*/
+    margin: 1rem;
 }
 /*
 * MAIN NAVIGATION
 */
 .burger-icon {
     display: inline-block;
-    width: 96px;
-    margin: 35px;
+    width: 48px;
+    margin: 10px;
 }
 
 .burger-icon__bar-container {
