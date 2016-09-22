@@ -17,6 +17,7 @@ body {
     font-family: Arial, sans-serif;
     font-size: 15px;
     font-size: 1.5rem;
+    margin: 1.5rem 0 0;
 }
 
 * {
@@ -26,6 +27,15 @@ body {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
+
+/*
+* HELPERS
+*/
+.hide {
+    display: none;
+}
+
+.row--center
 
 /*
 * GRID
@@ -88,11 +98,24 @@ body {
 
 .col-12 {
     width: 100%;
+
+}
+
+.row--center {
+    justify-content: center;
+}
+
+.row--emphasis {
+    background-color: #f5f5f5;
 }
 
 /* ICONS */
 
 .icon {
+    width:50%;
+}
+
+.icon__anchor {
     display: block;
     text-indent: -999px;
     width: 100%; /* Maybe do width in REMs */
@@ -122,6 +145,9 @@ body {
 /*
 * BRAND LOGO
 */
+
+
+
 .brand-logo__anchor {
     text-decoration: none;
     display: block;
@@ -130,12 +156,13 @@ body {
     background-repeat: no-repeat;
     background-size: 100%;
     font-size: 2.1rem;
-
+    padding-top: 16%;
 }
 
 .brand-logo__heading {
     text-indent: -999px;
-    margin: 1rem;
+    margin: 0;
+    height: 0;
 }
 /*
 * MAIN NAVIGATION
