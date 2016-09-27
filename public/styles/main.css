@@ -1,4 +1,5 @@
 /* TODO: Move to SASS. Vanilla CSS is just not good enough, even for prototyping. */
+/* TODO: Obtain fonts
 /*
 *   GLOBAL RESETS
 */
@@ -47,7 +48,6 @@ body {
 
 .row {
     width: 100%;
-    margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
 }
@@ -164,7 +164,9 @@ body {
 * BRAND LOGO
 */
 
-
+.brand-logo {
+    margin-bottom: 1.5rem;
+}
 
 .brand-logo__anchor {
     text-decoration: none;
