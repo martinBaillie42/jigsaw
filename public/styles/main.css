@@ -27,7 +27,7 @@ body {
     letter-spacing: 0.1rem;
     font-size: 15px;
     font-size: 1.5rem;
-    margin: 1.5rem 0 0;
+    margin: 0;
 
 }
 
@@ -137,6 +137,7 @@ body {
 
 .icon {
     width: 50%;
+    max-width: 5rem;
     margin: 15%;
 
 }
@@ -177,14 +178,14 @@ body {
 */
 
 .brand-logo {
-    margin-bottom: 1.5rem;
+    margin: 8% 0 4%;
 }
 
 .brand-logo__anchor {
     text-decoration: none;
     display: block;
     width: 100%;
-    background-image: url('../images/jigsaw_logo.png');
+    background-image: url('../images/logos/jigsaw_logo.png');
     background-repeat: no-repeat;
     background-size: 100%;
     font-size: 2.1rem;
@@ -208,5 +209,8 @@ nav {
     color: #000;
     text-decoration: none;
     margin: 1rem 0;
+}
 
+img {
+    width: 100%;
 }
