@@ -128,14 +128,14 @@ body {
 /* ICONS */
 
 .icon {
-    width:50%;
-
+    width: 50%;
+    margin: 15%;
 
 }
 
 .icon__anchor {
     display: block;
-    text-indent: -999px;
+    text-indent: -9999px;
     width: 100%; /* Maybe do width in REMs */
     height: 0;
     padding-bottom: 100%;
@@ -189,13 +189,17 @@ body {
 */
 
 .nav-bar {
-    height: 5rem;
+    /*height: 5rem;*/
+}
+
+nav {
+    width: 100%;
 }
 
 .burger-icon {
     display: inline-block;
-    width: 26px;
-    margin: 1.5rem 1.5rem 1.1rem;
+    width: 20%;
+    margin: 1.5rem 15% 1.1rem;
 }
 
 .burger-icon__bar-container {
