@@ -8,6 +8,14 @@
 Reference for REMs https://www.sitepoint.com/understanding-and-using-rem-units-in-css/ https://css-tricks.com/rems-ems/
 */
 
+@font-face {
+    font-family: "FuturaPTBook-Reg";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/FuturaPTBook-Reg/FuturaPTBook-Reg.woff") format("woff");
+}
+
+
 /* font-size set to 62.5% === 10px. Enables sensible sized rems to be used. */
 html {
     font-size: 62.5%;
@@ -15,10 +23,12 @@ html {
 
 /* font-size in px required because not all browsers support rems */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "FuturaPTBook-Reg", sans-serif;
+    letter-spacing: 0.1rem;
     font-size: 15px;
     font-size: 1.5rem;
     margin: 1.5rem 0 0;
+
 }
 
 * {
@@ -192,4 +202,11 @@ body {
 
 nav {
     width: 50%;
+}
+
+.banner {
+    color: #000;
+    text-decoration: none;
+    margin: 1rem 0;
+
 }
