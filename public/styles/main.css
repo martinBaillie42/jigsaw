@@ -39,6 +39,10 @@ body {
     box-sizing: border-box;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 /*
 * HELPERS
 */
@@ -182,7 +186,6 @@ body {
 }
 
 .brand-logo__anchor {
-    text-decoration: none;
     display: block;
     width: 100%;
     background-image: url('../images/logos/jigsaw_logo.png');
@@ -207,10 +210,24 @@ nav {
 
 .banner {
     color: #000;
-    text-decoration: none;
     margin: 1rem 0;
 }
 
 img {
     width: 100%;
+}
+
+/*
+* HOMEPAGE
+*/
+
+.hero {
+    position: relative;
+}
+
+.hero__title {
+    position: absolute;
+    bottom: 2rem;
+    left: 1rem;
+    color: #fff;
 }
